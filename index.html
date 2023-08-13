@@ -1,0 +1,176 @@
+<html>
+
+<head>
+    <title> LANCHONETE DA DB </title>
+    <meta charset="utf-8" />
+
+    <style>
+        #produtos {
+
+            max-width 900px;
+            margin: 0 auto;
+            padding: 0 2%;
+            display: flex;
+        }
+
+        #carrinho {
+            max-width 900px;
+            margin: 0 auto;
+            padding: 0 2%;
+            display: block;
+        }
+
+        .produto-single {
+            width: 33.3%;
+            padding: 0 20px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Vitrine: </h2>
+
+    <div id="produtos">
+
+
+    </div> <!--Produtos-->
+
+
+    <h2>Carrinho: </h2>
+
+    <div id="carrinho">
+
+
+
+    </div><!--Carrinho-->
+
+    <script>
+        const items = [
+            {
+                id: 0,
+                codigo: cafe,
+                descricao: 'Café',
+                img: '',
+                valor: 3.00,
+                quantidade: 0
+            },
+            {
+                id: 1,
+                codigo: chantily,
+                descricao: 'Chantily(extra do Café)',
+                img: '',
+                valor: 1.50,
+                quantidade: 0
+            },
+            {
+                id: 2,
+                codigo: suco,
+                descricao: 'Suco Natural',
+                img: '',
+                valor: 6.20,
+                quantidade: 0
+            },
+            {
+                id: 3,
+                codigo: sanduiche,
+                descricao: 'Sanduíche',
+                img: '',
+                valor: 6.50,
+                quantidade: 0
+            },
+            {
+                id: 4,
+                codigo: queijo,
+                descricao: 'Queijo(extra do Sanduíche)',
+                img: '',
+                valor: 2.00,
+                quantidade: 0
+            },
+            {
+                id: 5,
+                codigo: salgado,
+                descricao: 'Salgado',
+                img: '',
+                valor: 7.25,
+                quantidade: 0
+            },
+            {
+                id: 6,
+                codigo: combo1,
+                descricao: '1 Suco e 1 Sanduíche',
+                img: '',
+                valor: 9.50,
+                quantidade: 0
+            },
+            {
+                id: 7,
+                codigo: combo2,
+                descricao: '1 Café e 1 Sanduíche',
+                img: '',
+                valor: 7.50,
+                quantidade: 0
+            },
+
+
+        ];
+
+        let formaDePagamento = 'dinheiro', 'debito', 'credito';
+
+        //Colocar itens dinamicamente na vitrine
+
+        inicializarLoja = () => {
+            var containerProdutos = document.getElementById('produtos');
+            items.map((val) => {
+                containerProdutos.innerHTML += `
+                
+                <div class="produto-single">
+                    <img src="`+ val.img + `"/>
+                    <p> `+ val.nome + `</p>
+                    <a data-key="`+ val.id + `" href="">Adicionar ao carrinho!</a>
+                </div>
+        
+               
+               
+                `;
+
+            })
+        }
+
+        inicializarLoja();
+
+
+        atualizarCarrinho = () => {
+            var containerCarrinho = document.getElementById('carrinho');
+            containerCarrinho.innerHTML = '';   //limpar conteudo antes de atualizar
+            items.map((val) => {
+                if (val.quantidade > 0) {
+                    containerCarrinho.innerHTML += `
+                
+                <p>`+ val.nome + ` | quantidade: ` + val.quantidade + ` </p>
+                <hr>
+               
+               
+                `;
+                }
+            })
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
