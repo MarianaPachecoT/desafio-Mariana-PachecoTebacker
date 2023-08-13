@@ -131,6 +131,7 @@
                     <p> `+ val.nome + `</p>
                     <a data-key="`+ val.id + `" href="">Adicionar ao carrinho!</a>
                 </div>
+                
         
                
                
@@ -144,7 +145,7 @@
 
         atualizarCarrinho = () => {
             var containerCarrinho = document.getElementById('carrinho');
-            containerCarrinho.innerHTML = '';   //limpar conteudo antes de atualizar
+            containerCarrinho.innerHTML = '';   //limpar conteudo antes de atualiza
             items.map((val) => {
                 if (val.quantidade > 0) {
                     containerCarrinho.innerHTML += `
